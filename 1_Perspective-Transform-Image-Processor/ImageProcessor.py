@@ -452,7 +452,7 @@ class PerspectiveTransformApp:
             self.update_status("⚠  4점이 이미 선택됐습니다. '점 초기화' 후 다시 클릭하세요.")
             return
 
-        # ── 캔버스 좌표 → 원본 이미지 좌표 역변환 ──────────────────
+        # 캔버스 좌표 → 원본 이미지 좌표 역변환
         # 공식: orig = (canvas_pos - offset) / scale
         orig_x = int((event.x - self.canvas_offset_x) / self.scale_factor)
         orig_y = int((event.y - self.canvas_offset_y) / self.scale_factor)
@@ -467,7 +467,7 @@ class PerspectiveTransformApp:
         self.points.append((orig_x, orig_y))
         idx = len(self.points)   # 현재 선택된 점 번호 (1~4)
 
-        # ── 캔버스 마커 그리기 ───────────────────────────────────────
+        # 캔버스 마커 그리기
         # 점 번호별 구분 색상 (1=빨강, 2=초록, 3=파랑, 4=주황)
         COLORS = ["#e74c3c", "#2ecc71", "#3498db", "#f39c12"]
         color  = COLORS[idx - 1]
@@ -492,7 +492,7 @@ class PerspectiveTransformApp:
         # 마커 아이템 ID를 저장 → reset_points()에서 삭제할 때 사용
         self.point_markers.extend([oid, tid])
 
-        # ── 이전 점과 점선 연결 (2번째 점부터) ─────────────────────
+        # 이전 점과 점선 연결 (2번째 점부터)
         if idx >= 2:
             px, py = self.points[-2]   # 바로 직전에 선택된 점의 원본 좌표
             pcx = int(px * self.scale_factor) + self.canvas_offset_x
@@ -700,7 +700,7 @@ class PerspectiveTransformApp:
         rgb_arr = cv2.cvtColor(self.transformed_image, cv2.COLOR_BGR2RGB)
         pil_img = Image.fromarray(rgb_arr)
 
-        # ① 밝기: 하이라이트 보호 LUT 곡선 적용 ─────────────────────
+        # ① 밝기: 하이라이트 보호 LUT 곡선 적용
         #    기존: ImageEnhance.Brightness(pil_img).enhance(factor)  ← 선형, 클리핑 발생
         #    변경: _apply_brightness_hp(pil_img, factor)             ← 비선형, 하이라이트 보호
         pil_img = self._apply_brightness_hp(pil_img, self.brightness.get())
