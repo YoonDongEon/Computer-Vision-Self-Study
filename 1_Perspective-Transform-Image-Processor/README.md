@@ -120,5 +120,5 @@ pip install opencv-python numpy Pillow
 ## 제작 정보
 
 - 제작자명: DongEon Yoon
-- 제작일: 2026-04-15
+- 제작일: 2026-04-01
 - 프로그램 링크: https://github.com/YoonDongEon/Computer-Vision-Self-Study/tree/main/1_Perspective-Transform-Image-Processor
