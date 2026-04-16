@@ -104,7 +104,8 @@ pip install -r requirements.txt
 - 흑백 모드는 문서 텍스트를 선명하게 만들 수 있지만, 사진이나 컬러 정보가 중요한 문서에는 적합하지 않을 수 있습니다.
 - PDF는 페이지를 이미지로 변환한 뒤 처리하므로, 매우 큰 문서나 페이지 수가 많은 파일에서는 로딩 시간이 길어질 수 있습니다.
 
-## 제작자명, 제작일
+## 제작정보
 
 - 제작자명: DongEon Yoon
 - 제작일: 2026-04-16
+- 접속링크: https://github.com/YoonDongEon/Computer-Vision-Self-Study/tree/main/1_Automatic-Document-Scanner
